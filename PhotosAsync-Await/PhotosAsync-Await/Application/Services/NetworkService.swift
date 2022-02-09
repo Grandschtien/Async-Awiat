@@ -7,7 +7,12 @@
 
 import Foundation
 
-final class NetworkService {
+protocol NetworkServiceProtocol {
+    static func loadPhoto(urlString: String) async throws -> Data
+    func getData(start: Int, limit: Int) async throws -> Data
+}
+
+final class NetworkService: NetworkServiceProtocol {
     static func loadPhoto(urlString: String) async throws -> Data {
         guard let url = URL(string: urlString) else {
             throw URLError(.badURL)
@@ -25,7 +30,8 @@ final class NetworkService {
         }
         return data
     }
-    func getData(start: Int, limit: Int) async throws -> Data{
+    
+    func getData(start: Int, limit: Int) async throws -> Data {
         guard let url = URL.with(string: "_start=\(start)&_limit=\(limit)") else {
             throw URLError(.badURL)
         }
@@ -46,7 +52,7 @@ final class NetworkService {
 
 extension URL {
     private static var baseUrl: String {
-        return "https://jsonplaceholder.typicode.com/posts?"
+        return "https://jsonplaceholder.typicode.com/photos?"
     }
     
     static func with(string: String) -> URL? {

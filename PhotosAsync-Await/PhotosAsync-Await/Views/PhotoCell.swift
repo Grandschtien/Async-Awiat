@@ -17,6 +17,7 @@ class PhotoCell: UICollectionViewCell {
         image.contentMode = .scaleAspectFill
         return image
     }()
+    
     private let containerView: UIView = {
         let view = UIView()
         //view.isSkeletonable = true
@@ -24,7 +25,8 @@ class PhotoCell: UICollectionViewCell {
         view.backgroundColor = .white
         return view
     }()
-    func configure(imageUrl: String) {
+    func configure(with viewModel: PhotoViewModel) {
+        imageView.setImage(urlString: viewModel.url)
         setup()
     }
     private func setup() {

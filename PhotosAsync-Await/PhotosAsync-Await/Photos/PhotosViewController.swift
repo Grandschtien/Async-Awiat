@@ -18,6 +18,9 @@ final class PhotosViewController: UIViewController {
         collection.backgroundColor = .white
         return collection
     }()
+    private var photoViewModels = [PhotoViewModel]()
+    
+    
     private let collectionViewInsets =  UIEdgeInsets(top: 0,
                                                          left: 10,
                                                          bottom: 10,
@@ -35,6 +38,7 @@ final class PhotosViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        output.viewDidLoad()
         setup()
     }
 }
@@ -65,15 +69,26 @@ extension PhotosViewController: UICollectionViewDelegateFlowLayout {
 //MARK: - UICollectionViewDataSource
 extension PhotosViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 20
+        return photoViewModels.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = phototsCollection.dequeueCell(cellType: PhotoCell.self, for: indexPath)
-        cell.configure(imageUrl: "")
+        cell.configure(with: photoViewModels[indexPath.row])
+        output.loadNextPage(from: 0, limit: 0)
         return cell
     }
     
 }
 extension PhotosViewController: PhotosViewInput {
+    func updateView(with viewModels: [PhotoViewModel]) {
+        Task {
+            self.photoViewModels.append(contentsOf: viewModels)
+            phototsCollection.reloadData()
+        }
+    }
+    
+    func updateView(with errorDescription: String) {
+        print(errorDescription)
+    }
 }

@@ -12,20 +12,28 @@ protocol PhotosModuleInput {
 	var moduleOutput: PhotosModuleOutput? { get }
 }
 
-protocol PhotosModuleOutput: class {
+protocol PhotosModuleOutput: AnyObject {
 }
 
-protocol PhotosViewInput: class {
+protocol PhotosViewInput: AnyObject {
+    func updateView(with viewModels: [PhotoViewModel])
+    func updateView(with errorDescription: String)
 }
 
-protocol PhotosViewOutput: class {
+protocol PhotosViewOutput: AnyObject {
+    func viewDidLoad()
+    func loadNextPage(from start: Int, limit: Int)
 }
 
-protocol PhotosInteractorInput: class {
+protocol PhotosInteractorInput: AnyObject {
+    func loadFirstPage()
+    func loadNextPage(from start: Int, limit: Int)
 }
 
-protocol PhotosInteractorOutput: class {
+protocol PhotosInteractorOutput: AnyObject {
+    func didLoadPhotos(photos: [Photo])
+    func didCatchError(error: Error)
 }
 
-protocol PhotosRouterInput: class {
+protocol PhotosRouterInput: AnyObject {
 }
