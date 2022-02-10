@@ -22,7 +22,7 @@ final class NetworkService: NetworkServiceProtocol {
         let (data, response) = try await URLSession.shared.data(for: urlRequest)
         
         guard let response = response as? HTTPURLResponse else {
-            throw URLError(.badServerResponse)
+            throw URLError(.notConnectedToInternet)
         }
         
         guard response.statusCode == 200 else {

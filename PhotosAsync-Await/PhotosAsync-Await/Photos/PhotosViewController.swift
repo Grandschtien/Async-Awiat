@@ -108,3 +108,18 @@ extension PhotosViewController: PhotosViewInput {
         print(errorDescription)
     }
 }
+//MARK: - UICollectionViewDelegate
+
+extension PhotosViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let cell = phototsCollection.cellForItem(at: indexPath) as? PhotoCell else {
+            return
+        }
+        guard let rgbColor = cell.getImageColor else {
+            return
+        }
+        output.getColorInfo(hexColor: rgbColor.toHexString(),
+                            rgbColor: rgbColor.getRGBString(),
+                            photoViewModels: photoViewModels[indexPath.item])
+    }
+}

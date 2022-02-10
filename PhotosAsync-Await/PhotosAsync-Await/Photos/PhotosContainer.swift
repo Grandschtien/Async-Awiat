@@ -21,7 +21,7 @@ final class PhotosContainer {
 
 		presenter.view = viewController
 		presenter.moduleOutput = context.moduleOutput
-
+        router.viewController = viewController
 		interactor.output = presenter
 
         return PhotosContainer(view: viewController, input: presenter, router: router)

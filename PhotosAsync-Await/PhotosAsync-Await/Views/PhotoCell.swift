@@ -20,11 +20,14 @@ class PhotoCell: UICollectionViewCell {
     
     private let containerView: UIView = {
         let view = UIView()
-        //view.isSkeletonable = true
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = .white
         return view
     }()
+    
+    var getImageColor: UIColor? {
+        return imageView.image?.averageColor
+    }
     func configure(with viewModel: PhotoViewModel) {
         imageView.setImage(urlString: viewModel.url)
         setup()

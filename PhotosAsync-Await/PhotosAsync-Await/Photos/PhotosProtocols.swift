@@ -23,6 +23,9 @@ protocol PhotosViewInput: AnyObject {
 protocol PhotosViewOutput: AnyObject {
     func viewDidLoad()
     func loadNextPage(from start: Int, limit: Int)
+    func getColorInfo(hexColor: String,
+                      rgbColor: String,
+                      photoViewModels: PhotoViewModel)
 }
 
 protocol PhotosInteractorInput: AnyObject {
@@ -36,4 +39,7 @@ protocol PhotosInteractorOutput: AnyObject {
 }
 
 protocol PhotosRouterInput: AnyObject {
+    func addColorInfoToColorInfoScreen(hexColor: String,
+                                       rgbColor: String,
+                                       photoViewModels: PhotoViewModel)
 }

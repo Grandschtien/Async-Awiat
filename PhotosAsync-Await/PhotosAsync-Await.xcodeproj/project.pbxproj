@@ -26,6 +26,16 @@
 		6043778F27B410AF00CA4DC6 /* UIImageView+Download.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6043778E27B410AF00CA4DC6 /* UIImageView+Download.swift */; };
 		6043779127B4113800CA4DC6 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6043779027B4113800CA4DC6 /* Photo.swift */; };
 		604E2B7F27B4500900DD4FAF /* PhotoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604E2B7E27B4500900DD4FAF /* PhotoViewModel.swift */; };
+		604E2B8327B55B4900DD4FAF /* UIImage+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604E2B8227B55B4900DD4FAF /* UIImage+Color.swift */; };
+		604E2B8527B5615900DD4FAF /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604E2B8427B5615900DD4FAF /* UIColor+Hex.swift */; };
+		604E2B8727B5619500DD4FAF /* ColorInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604E2B8627B5619500DD4FAF /* ColorInfoViewModel.swift */; };
+		604E2B8927B5624500DD4FAF /* UIColor+RGB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604E2B8827B5624500DD4FAF /* UIColor+RGB.swift */; };
+		604E2B9027B563F400DD4FAF /* ColorInfoPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604E2B8A27B563F400DD4FAF /* ColorInfoPresenter.swift */; };
+		604E2B9127B563F400DD4FAF /* ColorInfoRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604E2B8B27B563F400DD4FAF /* ColorInfoRouter.swift */; };
+		604E2B9227B563F400DD4FAF /* ColorInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604E2B8C27B563F400DD4FAF /* ColorInfoViewController.swift */; };
+		604E2B9327B563F400DD4FAF /* ColorInfoProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604E2B8D27B563F400DD4FAF /* ColorInfoProtocols.swift */; };
+		604E2B9427B563F400DD4FAF /* ColorInfoInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604E2B8E27B563F400DD4FAF /* ColorInfoInteractor.swift */; };
+		604E2B9527B563F400DD4FAF /* ColorInfoContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604E2B8F27B563F400DD4FAF /* ColorInfoContainer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +60,16 @@
 		6043778E27B410AF00CA4DC6 /* UIImageView+Download.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Download.swift"; sourceTree = "<group>"; };
 		6043779027B4113800CA4DC6 /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		604E2B7E27B4500900DD4FAF /* PhotoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewModel.swift; sourceTree = "<group>"; };
+		604E2B8227B55B4900DD4FAF /* UIImage+Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Color.swift"; sourceTree = "<group>"; };
+		604E2B8427B5615900DD4FAF /* UIColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
+		604E2B8627B5619500DD4FAF /* ColorInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorInfoViewModel.swift; sourceTree = "<group>"; };
+		604E2B8827B5624500DD4FAF /* UIColor+RGB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+RGB.swift"; sourceTree = "<group>"; };
+		604E2B8A27B563F400DD4FAF /* ColorInfoPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorInfoPresenter.swift; sourceTree = "<group>"; };
+		604E2B8B27B563F400DD4FAF /* ColorInfoRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorInfoRouter.swift; sourceTree = "<group>"; };
+		604E2B8C27B563F400DD4FAF /* ColorInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorInfoViewController.swift; sourceTree = "<group>"; };
+		604E2B8D27B563F400DD4FAF /* ColorInfoProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorInfoProtocols.swift; sourceTree = "<group>"; };
+		604E2B8E27B563F400DD4FAF /* ColorInfoInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorInfoInteractor.swift; sourceTree = "<group>"; };
+		604E2B8F27B563F400DD4FAF /* ColorInfoContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorInfoContainer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,12 +102,13 @@
 		6043775F27B3FD1E00CA4DC6 /* PhotosAsync-Await */ = {
 			isa = PBXGroup;
 			children = (
+				6043776E27B3FD2100CA4DC6 /* Info.plist */,
+				6043777427B3FD6300CA4DC6 /* Application */,
 				604E2B7D27B44FF100DD4FAF /* ViewModels */,
 				6043778927B3FECE00CA4DC6 /* Entities */,
 				6043778827B3FEC600CA4DC6 /* Views */,
 				6043777727B3FD8300CA4DC6 /* Photos */,
-				6043777427B3FD6300CA4DC6 /* Application */,
-				6043776E27B3FD2100CA4DC6 /* Info.plist */,
+				604E2B9627B563FC00DD4FAF /* ColorInfo */,
 			);
 			path = "PhotosAsync-Await";
 			sourceTree = "<group>";
@@ -140,6 +161,7 @@
 			isa = PBXGroup;
 			children = (
 				604E2B7E27B4500900DD4FAF /* PhotoViewModel.swift */,
+				604E2B8627B5619500DD4FAF /* ColorInfoViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -158,8 +180,24 @@
 				6043778427B3FE6A00CA4DC6 /* UIView+Layout.swift */,
 				6043778627B3FE7300CA4DC6 /* ReuseId.swift */,
 				6043778E27B410AF00CA4DC6 /* UIImageView+Download.swift */,
+				604E2B8227B55B4900DD4FAF /* UIImage+Color.swift */,
+				604E2B8427B5615900DD4FAF /* UIColor+Hex.swift */,
+				604E2B8827B5624500DD4FAF /* UIColor+RGB.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		604E2B9627B563FC00DD4FAF /* ColorInfo */ = {
+			isa = PBXGroup;
+			children = (
+				604E2B8A27B563F400DD4FAF /* ColorInfoPresenter.swift */,
+				604E2B8B27B563F400DD4FAF /* ColorInfoRouter.swift */,
+				604E2B8C27B563F400DD4FAF /* ColorInfoViewController.swift */,
+				604E2B8D27B563F400DD4FAF /* ColorInfoProtocols.swift */,
+				604E2B8E27B563F400DD4FAF /* ColorInfoInteractor.swift */,
+				604E2B8F27B563F400DD4FAF /* ColorInfoContainer.swift */,
+			);
+			path = ColorInfo;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -236,19 +274,29 @@
 				6043776127B3FD1E00CA4DC6 /* AppDelegate.swift in Sources */,
 				6043778227B3FD8D00CA4DC6 /* PhotosInteractor.swift in Sources */,
 				6043778327B3FD8D00CA4DC6 /* PhotosContainer.swift in Sources */,
+				604E2B8527B5615900DD4FAF /* UIColor+Hex.swift in Sources */,
 				6043777E27B3FD8D00CA4DC6 /* PhotosPresenter.swift in Sources */,
+				604E2B9027B563F400DD4FAF /* ColorInfoPresenter.swift in Sources */,
 				6043778B27B3FEE900CA4DC6 /* PhotoCell.swift in Sources */,
+				604E2B8327B55B4900DD4FAF /* UIImage+Color.swift in Sources */,
+				604E2B9127B563F400DD4FAF /* ColorInfoRouter.swift in Sources */,
 				604E2B7F27B4500900DD4FAF /* PhotoViewModel.swift in Sources */,
+				604E2B9227B563F400DD4FAF /* ColorInfoViewController.swift in Sources */,
+				604E2B9327B563F400DD4FAF /* ColorInfoProtocols.swift in Sources */,
 				6043778F27B410AF00CA4DC6 /* UIImageView+Download.swift in Sources */,
 				6043778527B3FE6A00CA4DC6 /* UIView+Layout.swift in Sources */,
 				6043778727B3FE7300CA4DC6 /* ReuseId.swift in Sources */,
+				604E2B8927B5624500DD4FAF /* UIColor+RGB.swift in Sources */,
+				604E2B8727B5619500DD4FAF /* ColorInfoViewModel.swift in Sources */,
 				6043777F27B3FD8D00CA4DC6 /* PhotosRouter.swift in Sources */,
+				604E2B9427B563F400DD4FAF /* ColorInfoInteractor.swift in Sources */,
 				6043779127B4113800CA4DC6 /* Photo.swift in Sources */,
 				6043778127B3FD8D00CA4DC6 /* PhotosProtocols.swift in Sources */,
 				6043778027B3FD8D00CA4DC6 /* PhotosViewController.swift in Sources */,
 				6043776327B3FD1E00CA4DC6 /* SceneDelegate.swift in Sources */,
 				6043778D27B3FFDC00CA4DC6 /* NetworkService.swift in Sources */,
 				6043777627B3FD7A00CA4DC6 /* Coordinator.swift in Sources */,
+				604E2B9527B563F400DD4FAF /* ColorInfoContainer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
