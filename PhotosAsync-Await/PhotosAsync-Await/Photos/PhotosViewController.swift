@@ -18,13 +18,15 @@ final class PhotosViewController: UIViewController {
         collection.backgroundColor = .white
         return collection
     }()
+    private let batchSize = 20
+    private var startIndex = 2
     private var photoViewModels = [PhotoViewModel]()
     
     
     private let collectionViewInsets =  UIEdgeInsets(top: 0,
-                                                         left: 10,
-                                                         bottom: 10,
-                                                         right: 10)
+                                                     left: 10,
+                                                     bottom: 10,
+                                                     right: 10)
     
     init(output: PhotosViewOutput) {
         self.output = output
@@ -40,6 +42,7 @@ final class PhotosViewController: UIViewController {
         super.viewDidLoad()
         output.viewDidLoad()
         setup()
+        
     }
 }
 //MARK: - Setup UI
@@ -61,8 +64,8 @@ extension PhotosViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
-            return CGSize(width: view.frame.width / 2 - 20,
-                          height: view.frame.width / 2 - 20)
+        return CGSize(width: view.frame.width / 2 - 20,
+                      height: view.frame.width / 2 - 20)
     }
 }
 
@@ -75,7 +78,9 @@ extension PhotosViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = phototsCollection.dequeueCell(cellType: PhotoCell.self, for: indexPath)
         cell.configure(with: photoViewModels[indexPath.row])
-        output.loadNextPage(from: 0, limit: 0)
+        if indexPath.row == photoViewModels.count - 1 {
+            output.loadNextPage(from: indexPath.row + 1, limit: batchSize)
+        }
         return cell
     }
     
@@ -83,8 +88,19 @@ extension PhotosViewController: UICollectionViewDataSource {
 extension PhotosViewController: PhotosViewInput {
     func updateView(with viewModels: [PhotoViewModel]) {
         Task {
-            self.photoViewModels.append(contentsOf: viewModels)
-            phototsCollection.reloadData()
+            if photoViewModels.count == 0 {
+                photoViewModels.append(contentsOf: viewModels)
+                phototsCollection.reloadData()
+            } else {
+                phototsCollection.performBatchUpdates {
+                    var indexPaths: [IndexPath] = []
+                    for item in (photoViewModels.count..<(photoViewModels.count + viewModels.count)) {
+                        indexPaths.append(IndexPath(row: item, section: 0))
+                    }
+                    self.photoViewModels.append(contentsOf: viewModels)
+                    self.phototsCollection.insertItems(at: indexPaths)
+                }
+            }
         }
     }
     

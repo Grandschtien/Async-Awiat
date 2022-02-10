@@ -39,4 +39,7 @@ class PhotoCell: UICollectionViewCell {
                                        right: 0)
         imageView.pins(imageInsets)
     }
+    override func prepareForReuse() {
+        imageView.image = nil
+    }
 }

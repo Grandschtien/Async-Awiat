@@ -27,6 +27,14 @@ extension PhotosInteractor: PhotosInteractorInput {
     }
     
     func loadNextPage(from start: Int, limit: Int) {
-        
+        Task {
+            do {
+                let photosData = try await networkService.getData(start: start, limit: limit)
+                let decodedPhotos = try JSONDecoder().decode([Photo].self, from: photosData)
+                output?.didLoadPhotos(photos: decodedPhotos)
+            } catch {
+                output?.didCatchError(error: error)
+            }
+        }
     }
 }
